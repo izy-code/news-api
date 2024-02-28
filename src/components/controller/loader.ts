@@ -1,4 +1,4 @@
-import type { ResponseObject } from '@/types';
+import type { SourcesResponseObject, NewsResponseObject } from '@/types';
 
 enum Status {
   UNAUTHORIZED = 401,
@@ -16,7 +16,7 @@ class Loader {
 
   protected getResp(
     { endpoint, options = {} }: { endpoint: string; options?: Record<string, string> },
-    callback: (data: ResponseObject) => void = (): void => {
+    callback: (data: SourcesResponseObject | NewsResponseObject) => void = (): void => {
       console.error('No callback for GET response');
     },
   ): void {
@@ -49,13 +49,13 @@ class Loader {
   private load(
     method: string,
     endpoint: string,
-    callback: (data: ResponseObject) => void,
+    callback: (data: SourcesResponseObject | NewsResponseObject) => void,
     options: Record<string, string> = {},
   ): void {
     fetch(this.makeUrl(options, endpoint), { method })
       .then((res) => this.errorHandler(res))
       .then((res) => res.json())
-      .then((data: ResponseObject) => callback(data))
+      .then((data: SourcesResponseObject | NewsResponseObject) => callback(data))
       .catch((err) => console.error(err));
   }
 }

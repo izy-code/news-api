@@ -1,9 +1,9 @@
-import type { ResponseObject } from '@/types';
+import type { SourcesResponseObject, NewsResponseObject } from '@/types';
 import { assertIsDefined, assertObjectType } from '@/utils';
 import AppLoader from './appLoader';
 
 class AppController extends AppLoader {
-  public getSources(callback: (data: ResponseObject) => void): void {
+  public getSources(callback: (data: SourcesResponseObject | NewsResponseObject) => void): void {
     super.getResp(
       {
         endpoint: 'sources',
@@ -12,7 +12,7 @@ class AppController extends AppLoader {
     );
   }
 
-  public getNews(e: Event, callback: (data: ResponseObject) => void): void {
+  public getNews(e: Event, callback: (data: SourcesResponseObject | NewsResponseObject) => void): void {
     let target = e.target;
     const newsContainer = e.currentTarget;
 
