@@ -27,16 +27,18 @@ export interface Source {
   country: string;
 }
 
-interface Response {
+export interface ResponseObject {
   status: `${Status}`;
   code?: string;
   message?: string;
 }
 
-export interface NewsResponse extends Response {
+export interface NewsResponseObject extends ResponseObject {
   articles: Article[];
 }
 
-export interface SourcesResponse extends Response {
+export interface SourcesResponseObject extends ResponseObject {
   sources: Source[];
 }
+
+
