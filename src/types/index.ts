@@ -1,8 +1,3 @@
-export enum Status {
-  OK = 'ok',
-  ERROR = 'error',
-}
-
 export interface Article {
   source: {
     id: string;
@@ -27,8 +22,8 @@ export interface Source {
   country: string;
 }
 
-export interface ResponseObject {
-  status: `${Status}`;
+interface ResponseObject {
+  status: 'ok' | 'error';
   code?: string;
   message?: string;
 }
