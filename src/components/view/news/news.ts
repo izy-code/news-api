@@ -1,5 +1,5 @@
 import type { Article } from '@/types';
-import { assertIsQuerySelectable, queryElement } from '@/utils';
+import { assertObjectType, queryElement } from '@/utils';
 import './news.css';
 
 class News {
@@ -12,7 +12,7 @@ class News {
     news.forEach((item, idx) => {
       const newsClone = newsItemTemp.content.cloneNode(true);
 
-      assertIsQuerySelectable(newsClone);
+      assertObjectType(newsClone, HTMLElement);
 
       if (idx % 2) {
         queryElement(newsClone, '.news__item', HTMLElement).classList.add('alt');
