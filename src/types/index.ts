@@ -5,7 +5,7 @@ export enum Status {
 
 export interface Article {
   source: {
-    id: string | null;
+    id: string;
     name: string;
   };
   author: string;
@@ -18,7 +18,7 @@ export interface Article {
 }
 
 export interface Source {
-  id: string | null;
+  id: string;
   name: string;
   description: string;
   url: string;
