@@ -10,10 +10,10 @@ export function assertIsDefined<T>(value: T): asserts value is NonNullable<T> {
   }
 }
 
-export function assertElementType<T>(value: T, expectedType: ConstructorOf<T>): asserts value is NonNullable<T> {
-  assertIsDefined(value);
+export function assertObjectType<T>(object: unknown, expectedType: ConstructorOf<T>): asserts object is NonNullable<T> {
+  assertIsDefined(object);
 
-  if (!(value instanceof expectedType)) {
+  if (!(object instanceof expectedType)) {
     throw new TypeError(`Wrong node type`);
   }
 }
@@ -25,7 +25,7 @@ export const queryElement = <T extends Element>(
 ): T => {
   const queriedElement = container.querySelector<T>(selector);
 
-  assertElementType(queriedElement, expectedType);
+  assertObjectType(queriedElement, expectedType);
 
   return queriedElement;
 };
