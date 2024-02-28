@@ -10,7 +10,7 @@ class Sources {
     data.forEach((item) => {
       const sourceClone = sourceItemTemp.content.cloneNode(true);
 
-      assertObjectType(sourceClone, HTMLElement);
+      assertObjectType(sourceClone, DocumentFragment);
 
       queryElement(sourceClone, '.source__item-name', HTMLElement).textContent = item.name;
       queryElement(sourceClone, '.source__item', HTMLElement).setAttribute('data-source-id', item.id);

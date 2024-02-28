@@ -12,7 +12,7 @@ class News {
     news.forEach((item, idx) => {
       const newsClone = newsItemTemp.content.cloneNode(true);
 
-      assertObjectType(newsClone, HTMLElement);
+      assertObjectType(newsClone, DocumentFragment);
 
       if (idx % 2) {
         queryElement(newsClone, '.news__item', HTMLElement).classList.add('alt');
