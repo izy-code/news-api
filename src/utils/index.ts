@@ -14,7 +14,7 @@ export function assertObjectType<T>(object: unknown, expectedType: ConstructorOf
   assertIsDefined(object);
 
   if (!(object instanceof expectedType)) {
-    throw new TypeError(`Wrong node type`);
+    throw new TypeError(`Wrong object type`);
   }
 }
 
@@ -29,13 +29,3 @@ export const queryElement = <T extends Element>(
 
   return queriedElement;
 };
-
-export function assertIsQuerySelectable(node: Node): asserts node is Document | DocumentFragment | Element {
-  if (
-    node.nodeType !== Node.DOCUMENT_NODE &&
-    node.nodeType !== Node.DOCUMENT_FRAGMENT_NODE &&
-    node.nodeType !== Node.ELEMENT_NODE
-  ) {
-    throw new TypeError(`Wrong node type: ${node.nodeType}`);
-  }
-}
