@@ -18,6 +18,7 @@ class Sources {
       fragment.append(sourceClone);
     });
 
+    queryElement(document, '.sources', HTMLElement).replaceChildren();
     queryElement(document, '.sources', HTMLElement).append(fragment);
   }
 }
