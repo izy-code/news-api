@@ -1,14 +1,22 @@
-import type { SourcesResponseObject, NewsResponseObject } from '@/types';
+import type { SourcesResponseObject, NewsResponseObject, Source } from '@/types';
 import News from './news/news';
 import Sources from './sources/sources';
+import Languages from './languages/languages';
 
 export class AppView {
   private news;
-  private sources;
+  public sources;
+  private languages;
+  private sourcesData: Source[] = [];
 
   constructor() {
     this.news = new News();
     this.sources = new Sources();
+    this.languages = new Languages();
+  }
+
+  public getSourcesData(): Source[] {
+    return this.sourcesData;
   }
 
   public drawNews(data: SourcesResponseObject | NewsResponseObject): void {
@@ -27,6 +35,15 @@ export class AppView {
     } else {
       this.sources.draw([]);
     }
+  }
+
+  public drawLanguages(data: SourcesResponseObject | NewsResponseObject): void {
+    if (!('sources' in data)) {
+      throw new Error('Sources not found');
+    }
+
+    this.languages.draw(data.sources);
+    this.sourcesData = data.sources;
   }
 }
 
