@@ -1,7 +1,9 @@
+import type { ResponseObject } from '@/types';
+import { assertIsDefined, assertObjectType } from '@/utils';
 import AppLoader from './appLoader';
 
 class AppController extends AppLoader {
-  getSources(callback) {
+  public getSources(callback: (data: ResponseObject) => void): void {
     super.getResp(
       {
         endpoint: 'sources',
@@ -10,13 +12,19 @@ class AppController extends AppLoader {
     );
   }
 
-  getNews(e, callback) {
+  public getNews(e: Event, callback: (data: ResponseObject) => void): void {
     let target = e.target;
     const newsContainer = e.currentTarget;
+
+    assertObjectType(target, HTMLElement);
+    assertObjectType(newsContainer, HTMLElement);
 
     while (target !== newsContainer) {
       if (target.classList.contains('source__item')) {
         const sourceId = target.getAttribute('data-source-id');
+
+        assertIsDefined(sourceId);
+
         if (newsContainer.getAttribute('data-source') !== sourceId) {
           newsContainer.setAttribute('data-source', sourceId);
           super.getResp(
@@ -32,6 +40,8 @@ class AppController extends AppLoader {
         return;
       }
       target = target.parentNode;
+
+      assertObjectType(target, HTMLElement);
     }
   }
 }
