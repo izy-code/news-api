@@ -1,7 +1,7 @@
 type ConstructorOf<T> = { new (...args: unknown[]): T; prototype: T };
 
 export function assertIsDefined<T>(value: T): asserts value is NonNullable<T> {
-  if (value === undefined || value === null) {
+  if (value === undefined) {
     throw new Error(`Value not defined`);
   }
 
