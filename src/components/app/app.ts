@@ -12,9 +12,29 @@ class App {
   }
 
   public start(): void {
-    queryElement(document, '.sources', HTMLDivElement)
-      .addEventListener('click', (e) => this.controller.getNews(e, (data) => this.view.drawNews(data)));
-    this.controller.getSources((data) => this.view.drawSources(data));
+    queryElement(document, '.languages', HTMLDivElement).addEventListener('click', (e) => {
+      const target = e.target;
+
+      if (!(target instanceof HTMLElement)) {
+        return;
+      }
+
+      const button = target.closest('.languages__button');
+
+      if (!(button instanceof HTMLButtonElement)) {
+        return;
+      }
+
+      const sourcesOnLanguage = this.view.getSourcesData().filter((source) => source.language === button.dataset.lang);
+
+      this.view.sources.draw(sourcesOnLanguage);
+    });
+
+    queryElement(document, '.sources', HTMLDivElement).addEventListener('click', (e) =>
+      this.controller.getNews(e, (data) => this.view.drawNews(data)),
+    );
+
+    this.controller.getSources((data) => this.view.drawLanguages(data));
   }
 }
 
