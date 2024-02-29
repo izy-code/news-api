@@ -1,6 +1,7 @@
 import type { Article } from '@/types';
 import { assertObjectType, queryElement } from '@/utils';
 import './news.css';
+import placeholderSrc from '@/assets/favicon.svg';
 
 class News {
   public draw(data: Article[]): void {
@@ -19,7 +20,7 @@ class News {
       }
 
       queryElement(newsClone, '.news__meta-photo', HTMLElement).style.backgroundImage = `url(${
-        item.urlToImage || 'img/news_placeholder.jpg'
+        item.urlToImage || placeholderSrc
       })`;
       queryElement(newsClone, '.news__meta-author', HTMLElement).textContent = item.author || item.source.name;
       queryElement(newsClone, '.news__meta-date', HTMLElement).textContent = item.publishedAt
