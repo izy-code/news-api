@@ -29,3 +29,13 @@ export const queryElement = <T extends Element>(
 
   return queriedElement;
 };
+
+export const getClosestFromEventTarget = (evt: Event, closestSelectors: string): Element | null | undefined => {
+  const target = evt.target;
+
+  if (!(target instanceof Element)) {
+    return;
+  }
+
+  return target.closest(closestSelectors);
+};
