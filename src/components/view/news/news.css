@@ -1,8 +1,21 @@
+.news {
+  display: grid;
+  justify-items: center;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+  max-width: 1440px;
+  margin: 0 auto;
+
+  @media (max-width: 1200px) {
+    grid-template-columns: 1fr;
+  }
+}
+
 .news__item {
   display: flex;
   flex-direction: column;
-  margin: 1rem auto;
-  margin-bottom: 1.6%;
+  width: 100%;
+  margin: 0 auto;
   background: #fff;
   color: #333;
   line-height: 1.4;
