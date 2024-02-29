@@ -2,7 +2,7 @@
   "name": "news-api",
   "version": "1.0.0",
   "description": "News API",
-  "main": "index.js",
+  "main": "index.ts",
   "type": "module",
   "private": true,
   "scripts": {
