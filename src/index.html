@@ -9,13 +9,23 @@
   <body>
     <header>
       <h1>News Portal</h1>
+      <button class="header__burger js-burger-shown" type="button">
+        <span class="visually-hidden">Hide languages and sources</span>
+      </button>
     </header>
     <main>
-      <div class="sources buttons"></div>
+      <div class="languages js-languages-shown"></div>
+      <div class="sources js-sources-shown"></div>
       <div class="news"></div>
     </main>
     <footer>
-      <p class="copyright">Copyright <a href="https://newsapi.org">NewsAPI</a></p>
+      <p class="copyright">
+        2024<a class="copyright__link" href="https://newsapi.org" target="_blank">NewsAPI</a>
+      </p>
+      <p class="developer">
+        <a class="developer__link" href="https://github.com/izy-code" target="_blank">izy-code</a>
+      </p>
+      <a class="rs-school" href="https://rs.school/js/" target="_blank" ></a>
     </footer>
 
     <template id="sourceItemTemp">
