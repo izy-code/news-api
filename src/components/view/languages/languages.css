@@ -1,0 +1,39 @@
+.languages {
+  display: none;
+  flex-wrap: wrap;
+  gap: 0.5em;
+  min-height: 40px;
+  padding: 10px 10px 0;
+  overflow: auto;
+  justify-content: center;
+  align-items: center;
+  font:
+    300 1em 'Fira Sans',
+    sans-serif;
+}
+
+.languages__button {
+  background: none;
+  border: 2px solid #e1c023;
+  font: inherit;
+  line-height: 1;
+  padding: 0.5em 0.5em;
+  font-weight: 400;
+  border-radius: 8px;
+  white-space: nowrap;
+  color: #e1c023;
+  transition: 0.25s;
+  cursor: pointer;
+}
+
+.languages__button:hover,
+.languages__button:focus {
+  border-color: #3fcc59;
+  color: #69db7e;
+  box-shadow: 0 0.5em 0.5em -0.4em #3fcc59;
+  transform: translateY(-0.25em);
+}
+
+.js-languages-shown {
+  display: flex;
+}
