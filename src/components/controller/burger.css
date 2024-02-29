@@ -1,0 +1,52 @@
+.header__burger {
+  flex-shrink: 0;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  width: 44px;
+  height: 44px;
+  background-color: transparent;
+  border: 2px solid #30c5ff;
+  border-radius: 50%;
+  cursor: pointer;
+
+  &::before,
+  &::after {
+    content: "";
+    grid-area: 1 / 1 / 2 / 2;
+    width: 18px;
+    height: 2px;
+    background-color: #30c5ff;
+    border-radius: 10px;
+    transition: transform 0.3s ease-out;
+  }
+
+  &::before {
+    transform: translateY(-4px);
+  }
+
+  &::after {
+    transform: translateY(4px);
+  }
+
+  &:hover {
+    @media (hover: hover) {
+      border-color: #3fcc59;
+
+      &::before,
+      &::after {
+        background-color: #3fcc59;
+      }
+    }
+  }
+
+  .js-burger-shown& {
+    &::before {
+      transform: rotate(-45deg) translateY(0);
+    }
+
+    &::after {
+      transform: rotate(45deg) translateY(0);
+    }
+  }
+}
