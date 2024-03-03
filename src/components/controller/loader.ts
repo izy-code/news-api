@@ -6,7 +6,7 @@ enum Status {
 }
 
 class Loader {
-  private baseLink: typeof process.env.API_URL;
+  private baseLink: string;
   private options: Record<string, string>;
 
   constructor(baseLink: string, options: Record<string, string>) {
