@@ -40,7 +40,7 @@
     }
   }
 
-  .js-burger-shown& {
+  .js-menu-shown& {
     &::before {
       transform: rotate(-45deg) translateY(0);
     }

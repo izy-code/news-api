@@ -28,8 +28,6 @@ class App {
       this.controller.getNews(e, (data) => this.view.drawNews(data)),
     );
 
-    this.controller.burger.initBurger();
-
     this.controller.getSources((data) => this.view.drawLanguages(data));
   }
 }

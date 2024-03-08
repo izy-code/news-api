@@ -1,10 +1,10 @@
 import type { SourcesResponseObject, NewsResponseObject } from '@/types';
 import { assertIsDefined, assertObjectType } from '@/utils';
 import AppLoader from './appLoader';
-import Burger from './burger';
+import Menu from './menu';
 
 class AppController extends AppLoader {
-  public burger = new Burger();
+  public menu = new Menu();
 
   public getSources(callback: (data: SourcesResponseObject | NewsResponseObject) => void): void {
     super.getResp(
