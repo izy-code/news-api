@@ -30,11 +30,11 @@ export const queryElement = <T extends Element>(
   return queriedElement;
 };
 
-export const getClosestFromEventTarget = (evt: Event, closestSelectors: string): Element | null | undefined => {
+export const getClosestFromEventTarget = (evt: Event, closestSelectors: string): Element | null => {
   const target = evt.target;
 
   if (!(target instanceof Element)) {
-    return;
+    return null;
   }
 
   return target.closest(closestSelectors);
