@@ -1,8 +1,10 @@
+type ArticleSource = {
+  id: string;
+  name: string;
+};
+
 export interface Article {
-  source: {
-    id: string;
-    name: string;
-  };
+  source: ArticleSource;
   author: string;
   title: string;
   description: string;
