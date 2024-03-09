@@ -22,6 +22,8 @@ export default class Menu {
     this.languagesNode.classList.add('js-languages-shown');
     this.sourcesNode.classList.add('js-sources-shown');
     this.burgerButtonText.textContent = 'Hide languages and sources';
+    this.languagesNode.style.height = this.languagesNode.scrollHeight + 'px';
+    this.sourcesNode.style.height = this.sourcesNode.scrollHeight + 'px';
   }
 
   private closeMenu(): void {
@@ -29,6 +31,8 @@ export default class Menu {
     this.languagesNode.classList.remove('js-languages-shown');
     this.sourcesNode.classList.remove('js-sources-shown');
     this.burgerButtonText.textContent = 'Show languages and sources';
+    this.languagesNode.style.height = '0px';
+    this.sourcesNode.style.height = '0px';
   }
 
   private onBurgerButtonClick = (): void => {

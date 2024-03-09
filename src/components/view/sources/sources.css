@@ -1,10 +1,15 @@
 .sources {
-  display: none;
+  visibility: hidden;
+  opacity: 0;
+  display: flex;
   flex-wrap: wrap;
   gap: 0.5em;
-  min-height: 80px;
-  padding: 10px 10px;
-  overflow: auto;
+  transform: scaleY(0);
+  transform-origin: top;
+  height: 0;
+  padding-inline: 10px;
+  transition: transform 0.5s ease-in, opacity 0.5s ease-in, height 0.5s ease-in, padding 0.5s ease-in;
+  overflow-y: hidden;
   justify-content: center;
   align-items: center;
   font:
@@ -38,5 +43,8 @@
 }
 
 .js-sources-shown {
-  display: flex;
+  visibility: visible;
+  opacity: 1;
+  transform: scaleY(1);
+  padding-block: 10px;
 }

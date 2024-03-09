@@ -31,6 +31,7 @@ class Languages {
       button.setAttribute('type', 'button');
       button.textContent = languageMap[language] || language.toUpperCase();
       button.dataset.lang = language;
+      setTimeout(() => button.classList.add('js-languages-button-shown'), 300);
 
       languageButtons.appendChild(button);
     });

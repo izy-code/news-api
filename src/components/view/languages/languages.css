@@ -1,10 +1,14 @@
 .languages {
-  display: none;
+  visibility: hidden;
+  opacity: 0;
+  display: flex;
   flex-wrap: wrap;
   gap: 0.5em;
-  min-height: 40px;
-  padding: 10px 10px 0;
-  overflow: auto;
+  transform: scaleY(0);
+  transform-origin: top;
+  padding-inline: 10px;
+  transition: transform 0.5s ease-in, opacity 0.5s ease-in, height 0.5s ease-in, padding 0.5s ease-in;
+  overflow-y: hidden;
   justify-content: center;
   align-items: center;
   font:
@@ -13,6 +17,7 @@
 }
 
 .languages__button {
+  opacity: 0;
   background: none;
   border: 2px solid #e1c023;
   font: inherit;
@@ -22,7 +27,7 @@
   border-radius: 8px;
   white-space: nowrap;
   color: #e1c023;
-  transition: 0.25s;
+  transition: 0.25s, opacity 0.3s ease-in;
   cursor: pointer;
 }
 
@@ -35,5 +40,12 @@
 }
 
 .js-languages-shown {
-  display: flex;
+  visibility: visible;
+  opacity: 1;
+  transform: scaleY(1);
+  padding-top: 10px;
+}
+
+.js-languages-button-shown {
+  opacity: 1;
 }

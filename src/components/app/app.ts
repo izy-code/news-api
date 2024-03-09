@@ -12,7 +12,10 @@ class App {
   }
 
   public start(): void {
-    queryElement(document, '.languages', HTMLDivElement).addEventListener('click', (e) => {
+    const languagesNode = queryElement(document, '.languages', HTMLDivElement);
+    const sourcesNode = queryElement(document, '.sources', HTMLDivElement);
+
+    languagesNode.addEventListener('click', (e) => {
       const button = getClosestFromEventTarget(e, '.languages__button');
 
       if (button instanceof HTMLButtonElement) {
@@ -20,7 +23,14 @@ class App {
           .getSourcesData()
           .filter((source) => source.language === button.dataset.lang);
 
-        this.view.sources.draw(sourcesOnLanguage);
+        setTimeout(() => {
+          this.view.sources.draw(sourcesOnLanguage);
+          sourcesNode.classList.add('js-sources-shown');
+          sourcesNode.style.height = sourcesNode.scrollHeight + 'px';
+        }, sourcesNode.classList.contains('js-sources-shown') ? 500 : 0);
+
+        sourcesNode.classList.remove('js-sources-shown');
+        sourcesNode.style.height = '';
       }
     });
 

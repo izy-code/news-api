@@ -19,16 +19,14 @@ class News {
         queryElement(newsClone, '.news__item', HTMLElement).classList.add('alt');
       }
 
-      queryElement(newsClone, '.news__meta-photo', HTMLElement).style.backgroundImage = `url(${
-        item.urlToImage || placeholderSrc
-      })`;
+      queryElement(newsClone, '.news__meta-photo', HTMLElement).style.backgroundImage = `url(${item.urlToImage || placeholderSrc
+        })`;
       queryElement(newsClone, '.news__meta-author', HTMLElement).textContent = item.author || item.source.name;
       queryElement(newsClone, '.news__meta-date', HTMLElement).textContent = item.publishedAt
         .slice(0, 10)
         .split('-')
         .reverse()
         .join('-');
-
       queryElement(newsClone, '.news__description-title', HTMLElement).textContent = item.title;
       queryElement(newsClone, '.news__description-source', HTMLElement).textContent = item.source.name;
       queryElement(newsClone, '.news__description-content', HTMLElement).textContent = item.description;
@@ -37,8 +35,14 @@ class News {
       fragment.append(newsClone);
     });
 
-    queryElement(document, '.news', HTMLElement).innerHTML = '';
-    queryElement(document, '.news', HTMLElement).appendChild(fragment);
+    const newsNode = queryElement(document, '.news', HTMLElement)
+
+    newsNode.classList.remove('js-news-shown');
+    setTimeout(() => newsNode.innerHTML = '', 300);
+    setTimeout(() => {
+      newsNode.classList.add('js-news-shown');
+      newsNode.appendChild(fragment);
+    } , 300);
   }
 }
 
